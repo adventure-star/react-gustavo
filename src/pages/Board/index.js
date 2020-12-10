@@ -60,14 +60,14 @@ class Board extends PureComponent {
         if (width >= 1000 && width < 1280) { peritem = 2; }
         if (width >= 640 && width < 1000) { peritem = 1; }
         if (width < 640) { peritem = 3; }
-        this.setState(state => {
-            return {
-                peritem: peritem
-            }
-        })
+
+        this.setState({ peritem: peritem });
     }
 
     componentDidMount() {
+
+        this.handleScreenChange();
+
         apiGetAllImages()
             .then(res => {
                 console.log("=====res", res);
@@ -188,11 +188,7 @@ class Board extends PureComponent {
 
             console.log("=====new_state", newstate);
 
-            this.setState(state => {
-                return {
-                    data: newstate
-                }
-            })
+            this.setState({ data: newstate });
 
         }
 
@@ -253,6 +249,14 @@ class Board extends PureComponent {
 
     onSaveButtonClick = () => {
 
+        this.setState({ modal: true });
+        
+    }
+
+    saveDraft = () => {
+
+        this.setState({ modal: false });
+
         console.log("=====state", this.state.data);
 
         this.setState({ isSaving: true });
@@ -269,11 +273,6 @@ class Board extends PureComponent {
                 console.log('===== error: ', error);
                 // ...
             });
-    }
-
-    saveDraft = () => {
-
-        this.setState({ modal: false });
 
     }
 
@@ -301,31 +300,16 @@ class Board extends PureComponent {
         var newstates = { ...allstates };
         newstates[page] = currentstates;
 
-        this.setState(state => {
-            return {
-                data: newstates
-            }
-        })
+        this.setState({ data: newstates });
 
     }
 
     onTitleChange = (value) => {
-
-        this.setState(state => {
-            return {
-                title: value
-            }
-        });
-
+        this.setState({ title: value });
     }
 
     onEditableChange = (value) => {
-        console.log(value)
-        this.setState(state => {
-            return {
-                editable: value
-            }
-        });
+        this.setState({ editable: value });
     }
 
     render() {
