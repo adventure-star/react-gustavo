@@ -342,10 +342,10 @@ class Board extends PureComponent {
                                     onDrop={this.onDrop}
                                     editable={this.state.editable}
                                 />
-                                <div className="w-full py-6">
+                                <div className="w-full pt-6 pb-2 sm:pt-4 sm:pb-4">
                                     <YellowPreviewButton />
                                 </div>
-                                <div className="pt-10">
+                                <div className="pt-4 sm:pt-10">
                                     <SubBoard
                                         id="sub"
                                         media={this.state.data[this.state.page].sub}
@@ -358,7 +358,7 @@ class Board extends PureComponent {
                                     <YellowPreviewButton />
                                 </div>
                             </div>
-                            <div className="w-full sm:w-1/3 px-4 md:pl-6 lg:pl-10 sm:pr-0">
+                            <div className="w-full sm:w-1/3 px-4 md:pl-6 lg:pl-10 sm:pr-0 mt-4 sm:mt-0">
                                 <AnimationSource
                                     id="animsource"
                                     animations={this.state.anims.filter(t => t.panelId === "animsource")}

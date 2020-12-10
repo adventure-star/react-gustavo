@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 const PreviewButton = () => {
 
     return (
-        <button className="w-full h-12 sm:w-auto">
+        <button className="w-full h-12 sm:w-auto px-2 mx-1">
             <div className="flex items-center justify-center">
                 <img src="images/eye.png" className="object-none" />
                 <span className="pl-2">Vista Previa</span>
