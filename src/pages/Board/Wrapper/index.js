@@ -60,10 +60,10 @@ const Wrapper = (props) => {
     ));
 
     const pages = [
-        { id: 0, number: "01", title: "Presentación", src: "images/panel-1.png" },
-        { id: 1, number: "02", title: "Introducción", src: "images/panel-2.png" },
-        { id: 2, number: "03", title: "Desarrollo", src: "images/panel-3.png" },
-        { id: 3, number: "04", title: "Conclusión", src: "images/panel-4.png" },
+        { id: 0, number: "01", title: "Presentación", maskcolor: "#f8b84a" },
+        { id: 1, number: "02", title: "Introducción", maskcolor: "#e08b86" },
+        { id: 2, number: "03", title: "Desarrollo", maskcolor: "#8bd6ad" },
+        { id: 3, number: "04", title: "Conclusión", maskcolor: "#ee9d66" },
     ]
 
     const onTitleChange = (event) => {
@@ -103,11 +103,10 @@ const Wrapper = (props) => {
                             <div key={page.id} className={`flex items-center hover:bg-blue-400 px-2 pt-4 cursor-pointer ${props.page == page.id ? `bg-blue-400` : `bg-transparent`}`} onClick={() => { props.onChange(page.id) }}>
                                 <span className="text-white font-bold pr-2 pb-8">{page.number}</span>
                                 <div className="text-center">
-                                    <img src={page.src} className="rounded-lg" />
-                                    {/* <div className="relative">
-                                        <img src="images/panel-base.png" className="rounded-lg" />
-                                        <div className="absolute left-0 top-0 w-full h-full opacity-50" style={{backgroundColor: "#f4c053"}}></div>
-                                    </div> */}
+                                    <div className="relative">
+                                        <img src="images/panel-base.png" className={`rounded-lg`} />
+                                        <div className={`${props.page == page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{backgroundColor: page.maskcolor}}></div>
+                                    </div>
                                     <span className="text-white font-bold leading-loose">{page.title}</span>
                                 </div>
                             </div>
