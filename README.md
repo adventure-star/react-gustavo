@@ -1,6 +1,5 @@
-# React-Tailwind
 
-My starting environment for a React project with TailwindCSS.
+This project is built using React and TailWindcss
 
 ## Available Scripts
 
