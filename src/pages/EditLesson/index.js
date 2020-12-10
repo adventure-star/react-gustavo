@@ -6,7 +6,7 @@ import SubBoard from '../../components/SubBoard';
 import VideoSource from '../../components/VideoSource';
 import TextSource from '../../components/TextSource';
 import ConfirmDialog from '../../components/ConfirmDialog';
-import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiGetProjectById } from '../../services/news';
+import { apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiUpdateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiGetProjectById } from '../../services/news';
 import LoadingOverlay from 'react-loading-overlay';
 import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
@@ -151,13 +151,12 @@ class EditLesson extends PureComponent {
         apiGetProjectById(this.props.match.params.id)
             .then(res => {
                 console.log("=====res", res);
-                this.setState({
-                    title: res.title,
-                    data: res.data
-                })
-                // if (res) {
-                    
-                // }
+                if (res) {
+                    this.setState({
+                        title: res.title,
+                        data: res.data
+                    })
+                }
             })
             .catch(function (error) {
                 // Handle Errors here.
@@ -279,7 +278,7 @@ class EditLesson extends PureComponent {
 
         this.setState({ isSaving: true });
 
-        apiCreateProject(this.dataModify(this.state.data))
+        apiUpdateProject(this.props.match.params.id, this.dataModify(this.state.data))
             .then(res => {
                 console.log("=====res", res);
                 if (res) {
@@ -340,7 +339,7 @@ class EditLesson extends PureComponent {
                 <LoadingOverlay
                     active={this.state.isSaving}
                     spinner={<DotLoader />}
-                    text='Saving...'
+                    text='Updating...'
                 >
                     <LessonWrapper
                         page={this.state.page}

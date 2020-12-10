@@ -64,6 +64,10 @@ export async function apiCreateProject(data) {
   return await jsonQuery(`/project/create`, 'POST', data, true);
 }
 
+export async function apiUpdateProject(id, data) {
+  return await jsonQuery(`/project/${id}`, 'PUT', data, true);
+}
+
 export async function apiGetProjectById(id) {
   return await query(`/project/${id}/`);
 }
