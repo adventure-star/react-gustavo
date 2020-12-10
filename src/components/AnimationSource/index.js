@@ -18,7 +18,7 @@ const AnimationSource = (props) => {
         <div className="rounded-lg shadow-md">
             <div className="bg-customPrimary text-white text-center text-2xl rounded-t-lg py-1">Insert Animation</div>
             <div className="flex items-center justify-around px-2 py-5">
-                <img src="images/left-icon.png" className="cursor-pointer" onClick={beforeIndex}/>
+                <img src="/images/left-icon.png" className="cursor-pointer" onClick={beforeIndex}/>
                 {animations.slice(start, start + props.peritem).map(animation => (
                     <DragAnimation
                         id={animation.id}
@@ -27,7 +27,7 @@ const AnimationSource = (props) => {
                         type={animation.type}
                     />
                 ))}
-                <img src="images/right-icon.png" className="cursor-pointer" onClick={afterIndex}/>
+                <img src="/images/right-icon.png" className="cursor-pointer" onClick={afterIndex}/>
             </div>
         </div>
     )

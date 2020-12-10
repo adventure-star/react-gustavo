@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { apiGetRecentLessons, staticRecentLessons } from "../../services/commonService"
+import { apiGetRecentProjects } from "../../services/news.js"
 import { Link } from 'react-router-dom';
+import { staticRecentLessons } from '../../services/commonService.js';
+import Moment from 'moment';
 
 
 const MyLessonComponent = () => {
@@ -12,17 +14,19 @@ const MyLessonComponent = () => {
     }, []);
 
     const getRecentLessons = () => {
-        // apiGetRecentLessons()
-        // .then(res => {
-        //     if(res) {
-        //         console.log(res)
-        //     }
-        // })
-        // .catch(function(error){
-        //     console.log(error);
-        // })
 
-        setData(staticRecentLessons());
+        apiGetRecentProjects()
+            .then(res => {
+                if (res) {
+                    console.log(res)
+                    setData(res);
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        // setData(staticRecentLessons());
     }
 
     return (
@@ -49,7 +53,7 @@ const MyLessonComponent = () => {
                 </div>
                 <p className="pt-6 pb-4 font-custom-medium">Lecciones recientemente creadas</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 col-gap-4 row-gap-4">
-                    {data !== [] && data.map((lesson) => (
+                    {/* {data !== [] && data.map((lesson) => (
                         <Link to="/" key={lesson.id} className="rounded-lg shadow-lg mx-auto hover:opacity-50">
                             <img src={lesson.src} className="object-none object-center rounded-lg w-full" style={{ maxwidth: "230px", height: "170px" }} />
                             <div className="p-3">
@@ -58,6 +62,21 @@ const MyLessonComponent = () => {
                                     <div className="">
                                         <p className="font-semibold pl-2">{lesson.title}</p>
                                         <p className="pl-2">{lesson.content}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    ))} */}
+                    {data !== [] && data.map((lesson) => (
+                        // <Link to={{ pathname: "/lesson-edit", state: { id: lesson.id } }}  key={lesson.id} className="rounded-lg shadow-lg mx-auto hover:opacity-50">
+                        <Link to={"/lesson/edit/" + lesson.id}  key={lesson.id} className="rounded-lg shadow-lg mx-auto hover:opacity-50">
+                            <img src="/images/pyramid.png" className="object-none object-center rounded-lg w-full" style={{ maxwidth: "230px", height: "170px" }} />
+                            <div className="p-3">
+                                <div className="flex items-start">
+                                    <img src="images/account-gray.png" className="object-none w-4 h-8" />
+                                    <div className="">
+                                        <p className="font-semibold pl-2">{lesson.title}</p>
+                                        <p className="pl-2">{Moment(lesson.updated_at).format('YYYY-MM-DD')}</p>
                                     </div>
                                 </div>
                             </div>

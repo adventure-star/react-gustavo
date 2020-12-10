@@ -32,7 +32,7 @@ const LessonTemplates = () => {
                 <div className="w-full flex-none sm:flex items-center">
                     <div className="flex w-full sm:w-160 relative">
                         <div className="w-10 h-10 absolute left-0 bg-customPurple flex items-center rounded-lg">
-                            <img src="images/search-icon.png" className="mx-auto" />
+                            <img src="/images/search-icon.png" className="mx-auto" />
                         </div>
                         <input type="text" className="w-full h-10 bg-customBlue rounded-lg pl-16 pr-8 text-lg font-custom-light border border-gray-300 focus:shadow-outline" placeholder="Buscar..." />
                     </div>

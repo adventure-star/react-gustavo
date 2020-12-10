@@ -27,10 +27,10 @@ class MainBoard extends Component {
         return (
             <Droppable dndType="image" {...this.props}>
                 <div className={`${this.state.txttype == "question1" ? `height-324` : ``} relative flex items-center bg-customLightGray`}>
-                    <img src="images/board-pad.png" className="w-full" />
+                    <img src="/images/board-pad.png" className="w-full" />
                     <div className="w-full h-full absolute left-0 top-0 flex items-center">
                         <div className="text-center w-full pt-4 sm:pt-8">
-                            <img src="images/drag-img.png" className="mx-auto" />
+                            <img src="/images/drag-img.png" className="mx-auto" />
                             <span className="font-bold pt-4">
                                 Drag the image and drop
                                     <br />

@@ -7,7 +7,6 @@ const SetUp = (props) => {
     return (
         <WithHeaderLayout>
             SetUp Page
-            <CustomQuestions1 />
         </WithHeaderLayout>
     )
 }

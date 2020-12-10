@@ -28,7 +28,7 @@ class SubBoard extends Component {
                 <div className="relative w-full bg-customLightGray shadow-md" style={{ height: "324px" }}>
                     <div className="w-full h-full absolute left-0 top-0 flex items-center">
                         <div className="text-center w-full pt-8">
-                            <img src="images/drag-img.png" className="mx-auto" />
+                            <img src="/images/drag-img.png" className="mx-auto" />
                             <span className="font-bold pt-4">
                                 Drag the image and drop
                                 <br />

@@ -56,6 +56,10 @@ export async function apiGetAllLinkVideos() {
   return await query(`/linkvideos/all`);
 }
 
+export async function apiGetRecentProjects() {
+  return await query(`/project/recent`);
+}
+
 export async function apiCreateProject(data) {
   return await jsonQuery(`/project/create`, 'POST', data, true);
 }

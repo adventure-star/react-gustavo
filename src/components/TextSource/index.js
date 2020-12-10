@@ -18,7 +18,7 @@ const TextSource = (props) => {
         <div className="rounded-lg shadow-md mt-6">
             <div className="bg-customPrimary text-white text-center text-2xl rounded-t-lg py-1">Insert Text</div>
             <div className="flex items-center justify-between px-2 py-5">
-                <img src="images/left-icon.png" className="cursor-pointer" onClick={beforeIndex} />
+                <img src="/images/left-icon.png" className="cursor-pointer" onClick={beforeIndex} />
                 {texts.slice(start, start + props.peritem).map(text => (
                     <DragText
                         id={text.id}
@@ -28,7 +28,7 @@ const TextSource = (props) => {
                         txttype={text.txttype}
                     />
                 ))}
-                <img src="images/right-icon.png" className="cursor-pointer" onClick={afterIndex} />
+                <img src="/images/right-icon.png" className="cursor-pointer" onClick={afterIndex} />
             </div>
         </div>
     )

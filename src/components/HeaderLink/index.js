@@ -16,32 +16,32 @@ const HeaderLink = () => {
         {
             name: "Home",
             link: "/home",
-            src: "images/nav-home.png"
+            src: "/images/nav-home.png"
         },
         {
             name: "Tablero",
             link: "/board",
-            src: "images/nav-board.png"
+            src: "/images/nav-board.png"
         },
         {
             name: "Mis lecciones",
             link: "/mylessons",
-            src: "images/nav-mylessons.png"
+            src: "/images/nav-mylessons.png"
         },
         {
             name: "Biblioteca",
             link: "/library",
-            src: "images/nav-library.png"
+            src: "/images/nav-library.png"
         },
         {
             name: "Configurar",
             link: "/setup",
-            src: "images/nav-setup.png"
+            src: "/images/nav-setup.png"
         },
         {
             name: "Salir",
             link: "/getout",
-            src: "images/nav-getout.png"
+            src: "/images/nav-getout.png"
         }
     ];
 
@@ -66,7 +66,7 @@ const HeaderLink = () => {
                 {links.map((link) => (
                     <Link to={link.link} key={link.name} className="relative flex items-center py-4 hover:bg-blue-700" onClick={() => toggleExpansion(false)}>
                         <div className="flex-none lg:flex items-center pl-0 lg:pl-10 mx-0 md:mx-auto lg:mx-0">
-                            <img src="images/navpicker.png" className={`${pathName == link.link ? `block` : `hidden`} absolute left-0`} />
+                            <img src="/images/navpicker.png" className={`${pathName == link.link ? `block` : `hidden`} absolute left-0`} />
                             <div className="mx-0 md:mx-auto lg:mx-0" style={{ width: "35px" }}>
                                 <img src={link.src} className="mx-auto lg:mx-0" />
                             </div>

@@ -76,7 +76,7 @@ const Wrapper = (props) => {
 
     return (
         <div className="w-full flex bg-customPrimary relative">
-            <img src="images/background.png" className="hidden md:block absolute left-0 top-0 h-full" style={{ zIndex: "1", opacity: "0.8" }} />
+            <img src="/images/background.png" className="hidden md:block absolute left-0 top-0 h-full" style={{ zIndex: "1", opacity: "0.8" }} />
             <div className="flex-none md:flex w-full" style={{ zIndex: "10" }}>
                 <div className="w-full md:w-1/5 pt-3 pb-3 md:pt-20 md:pb-0 md:h-auto relative" style={{ minHeight: "64px" }}>
                     <img src="images/bars.png" className="absolute left-8 top-8 cursor-pointer" />
@@ -104,7 +104,7 @@ const Wrapper = (props) => {
                                 <span className="text-white font-bold pr-2 pb-8">{page.number}</span>
                                 <div className="text-center">
                                     <div className="relative">
-                                        <img src="images/panel-base.png" className={`rounded-lg`} />
+                                        <img src="/images/panel-base.png" className={`rounded-lg`} />
                                         <div className={`${props.page == page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{backgroundColor: page.maskcolor}}></div>
                                     </div>
                                     <span className="text-white font-bold leading-loose">{page.title}</span>
