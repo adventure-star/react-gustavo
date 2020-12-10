@@ -140,8 +140,6 @@ class Board extends PureComponent {
         if (!(currentstates[targetId].type == item.type && currentstates[targetId].id == item.id)) {
 
             delete allstates[page];
-            // delete currentstates[targetId];
-            // delete currentstates[targetId].content;
 
             currentstates[targetId] = { ...item, panelId: targetId };
             currentstates[targetId].content = {
@@ -270,7 +268,6 @@ class Board extends PureComponent {
         delete content[name];
 
         content[name] = value;
-        // mainstates = { ...mainstates, content };
         mainstates.content = content;
         currentstates[panelId] = mainstates;
 
@@ -325,7 +322,7 @@ class Board extends PureComponent {
                         onEditableChange={this.onEditableChange}
                     >
                         <div className="flex-none sm:flex px-6 lg:px-10 py-6 lg:py-10">
-                            <div className="w-full sm:w-2/3 pl-3">
+                            <div className="w-full sm:w-2/3 px-4 sm:pl-3 sm:pr-0">
                                 <MainBoard
                                     id="main"
                                     page={this.state.page}
@@ -350,7 +347,7 @@ class Board extends PureComponent {
                                     <YellowPreviewButton />
                                 </div>
                             </div>
-                            <div className="w-full sm:w-1/3 pl-10">
+                            <div className="w-full sm:w-1/3 px-4 md:pl-6 lg:pl-10 sm:pr-0">
                                 <AnimationSource
                                     id="animsource"
                                     animations={this.state.anims.filter(t => t.panelId === "animsource")}
