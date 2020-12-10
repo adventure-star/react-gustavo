@@ -7,7 +7,7 @@ import SubBoard from '../../components/SubBoard';
 import VideoSource from '../../components/VideoSource';
 import TextSource from '../../components/TextSource';
 import ConfirmDialog from '../../components/ConfirmDialog';
-import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject } from '../../services/news';
+import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos } from '../../services/news';
 import LoadingOverlay from 'react-loading-overlay';
 import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
@@ -22,21 +22,9 @@ class Board extends PureComponent {
         super(props);
         this.state = {
             page: 0,
-            anims: [
-                { id: 1, src: "images/girl-1.png", type: "anim", panelId: "animsource" },
-                { id: 2, src: "images/girl-2.png", type: "anim", panelId: "animsource" },
-                { id: 3, src: "images/girl-3.png", type: "anim", panelId: "animsource" },
-            ],
-            presentations: [
-                { id: 1, src: "images/add-pres-1.png", type: "presentation", panelId: "pressource" },
-                { id: 2, src: "images/add-pres-2.png", type: "presentation", panelId: "pressource" },
-                { id: 3, src: "images/add-pres-3.png", type: "presentation", panelId: "pressource" },
-            ],
-            linkvideos: [
-                { id: 1, src: "images/add-link-1.png", type: "linkvideo", panelId: "linkvidsource" },
-                { id: 2, src: "images/add-link-2.png", type: "linkvideo", panelId: "linkvidsource" },
-                { id: 3, src: "images/add-link-3.png", type: "linkvideo", panelId: "linkvidsource" },
-            ],
+            anims: [],
+            presentations: [],
+            linkvideos: [],
             images: [],
             videos: [],
             texts: [],
@@ -112,6 +100,45 @@ class Board extends PureComponent {
                 if (res) {
                     const texts = res.map(v => ({ ...v, panelId: "txtsource" }))
                     this.setState({ texts: texts });
+                }
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                console.log('===== error: ', error);
+                // ...
+            });
+        apiGetAllAnimations()
+            .then(res => {
+                console.log("=====res", res);
+                if (res) {
+                    const anims = res.map(v => ({ ...v, panelId: "animsource" }))
+                    this.setState({ anims: anims });
+                }
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                console.log('===== error: ', error);
+                // ...
+            });
+        apiGetAllPresentations()
+            .then(res => {
+                console.log("=====res", res);
+                if (res) {
+                    const presentations = res.map(v => ({ ...v, panelId: "pressource" }))
+                    this.setState({ presentations: presentations });
+                }
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                console.log('===== error: ', error);
+                // ...
+            });
+        apiGetAllLinkVideos()
+            .then(res => {
+                console.log("=====res", res);
+                if (res) {
+                    const linkvideos = res.map(v => ({ ...v, panelId: "linkvidsource" }))
+                    this.setState({ linkvideos: linkvideos });
                 }
             })
             .catch(function (error) {

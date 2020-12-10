@@ -44,6 +44,18 @@ export async function apiGetAllTexts() {
   return await query(`/texts/all`);
 }
 
+export async function apiGetAllAnimations() {
+  return await query(`/animations/all`);
+}
+
+export async function apiGetAllPresentations() {
+  return await query(`/presentations/all`);
+}
+
+export async function apiGetAllLinkVideos() {
+  return await query(`/linkvideos/all`);
+}
+
 export async function apiCreateProject(data) {
   return await jsonQuery(`/project/create`, 'POST', data, true);
 }
