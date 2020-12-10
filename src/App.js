@@ -1,6 +1,6 @@
 import React, { lazy, Suspense, Fragment } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import LeftSideBar from './components/LeftSideBar';
+import LeftSideBar from './layouts/LeftSideBar';
 import { motion } from 'framer-motion';
 import { ClipLoader } from 'react-spinners';
 

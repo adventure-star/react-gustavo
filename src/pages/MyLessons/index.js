@@ -1,6 +1,6 @@
 import React from 'react';
 import MyLessonComponent from '../../components/MyLessonComponent';
-import WithHeaderLayout from '../../components/WithHeaderLayout';
+import WithHeaderLayout from '../../layouts/WithHeaderLayout';
 
 const MyLessons = (props) => {
 

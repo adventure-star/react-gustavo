@@ -1,5 +1,5 @@
 import React from 'react';
-import WithHeaderLayout from '../../components/WithHeaderLayout';
+import WithHeaderLayout from '../../layouts/WithHeaderLayout';
 import CustomQuestions1 from '../../components/CustomQuestions1';
 
 const SetUp = (props) => {
