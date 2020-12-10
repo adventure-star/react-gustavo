@@ -6,7 +6,7 @@ import SubBoard from '../../components/SubBoard';
 import VideoSource from '../../components/VideoSource';
 import TextSource from '../../components/TextSource';
 import ConfirmDialog from '../../components/ConfirmDialog';
-import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos } from '../../services/news';
+import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiGetProjectById } from '../../services/news';
 import LoadingOverlay from 'react-loading-overlay';
 import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
@@ -148,6 +148,22 @@ class EditLesson extends PureComponent {
                 console.log('===== error: ', error);
                 // ...
             });
+        apiGetProjectById(this.props.match.params.id)
+            .then(res => {
+                console.log("=====res", res);
+                this.setState({
+                    title: res.title,
+                    data: res.data
+                })
+                // if (res) {
+                    
+                // }
+            })
+            .catch(function (error) {
+                // Handle Errors here.
+                console.log('===== error: ', error);
+                // ...
+            });
     }
     componentWillUpdate() {
         this.setState({ isLoading: true });
@@ -252,7 +268,7 @@ class EditLesson extends PureComponent {
     onSaveButtonClick = () => {
 
         this.setState({ modal: true });
-        
+
     }
 
     saveDraft = () => {

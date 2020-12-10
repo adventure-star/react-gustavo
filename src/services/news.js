@@ -63,3 +63,7 @@ export async function apiGetRecentProjects() {
 export async function apiCreateProject(data) {
   return await jsonQuery(`/project/create`, 'POST', data, true);
 }
+
+export async function apiGetProjectById(id) {
+  return await query(`/project/${id}/`);
+}
