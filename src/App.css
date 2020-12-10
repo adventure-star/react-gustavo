@@ -1,0 +1,68 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url("/fonts/Gotham-Book.ttf");
+}
+@font-face {
+  font-family: 'GothamBold';
+  src: url("/fonts/Gotham-Bold.ttf");
+}
+@font-face {
+  font-family: 'GothamLight';
+  src: url("/fonts/Gotham-Light.ttf");
+}
+@font-face {
+  font-family: 'GothamMedium';
+  src: url("/fonts/Gotham-Medium.ttf");
+}
+
+.font-custom-book {
+  font-family: GothamBook;
+}
+.font-custom-bold {
+  font-family: GothamBold;
+}
+.font-custom-light {
+  font-family: GothamLight;
+}
+.font-custom-medium {
+  font-family: GothamMedium;
+}
