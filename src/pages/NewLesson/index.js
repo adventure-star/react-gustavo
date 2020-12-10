@@ -1,6 +1,5 @@
 import React, { useState, PureComponent } from 'react';
 import YellowPreviewButton from '../../components/YellowPreviewButton';
-import Wrapper from './Wrapper';
 import { MainBoard } from '../../components';
 import ImageSource from '../../components/ImageSource';
 import SubBoard from '../../components/SubBoard';
@@ -13,6 +12,7 @@ import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
 import PresentationSource from '../../components/PresentationSource';
 import LinkVideoSource from '../../components/LinkVideoSource';
+import LessonWrapper from '../../layouts/LessonWrapper';
 
 
 class Lesson extends PureComponent {
@@ -324,7 +324,7 @@ class Lesson extends PureComponent {
                     spinner={<DotLoader />}
                     text='Saving...'
                 >
-                    <Wrapper
+                    <LessonWrapper
                         page={this.state.page}
                         title={this.state.title}
                         onTitleChange={this.onTitleChange}
@@ -392,7 +392,7 @@ class Lesson extends PureComponent {
                             </div>
                         </div>
                         <ConfirmDialog open={this.state.modal} onClose={() => { this.setState({ modal: false }) }} onConfirm={this.saveDraft} />
-                    </Wrapper>
+                    </LessonWrapper>
                 </LoadingOverlay>
             </LoadingOverlay>
         )
