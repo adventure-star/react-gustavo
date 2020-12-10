@@ -5,7 +5,7 @@ const FontSelect = (props) => {
         <select
             name="fontfamily"
             value={props.value !== undefined ? props.value : "Arial"}
-            className="mr-4 border border-blue-400 rounded-sm"
+            className="border border-blue-400 rounded-sm"
             {...props}
         >
             <option value="Arial" style={{ fontFamily: "Arial" }}>Arial</option>

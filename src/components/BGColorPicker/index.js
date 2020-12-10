@@ -9,7 +9,7 @@ const BGColorPicker = (props) => {
     }
     return (
         <>
-            <button className="ml-4 border border-blue-400 rounded-sm" disabled={props.disabled} onClick={handleClick}>
+            <button className="ml-2 border border-blue-400 rounded-sm" disabled={props.disabled} onClick={handleClick}>
                 <div className="w-6 h-6 m-1" style={{ backgroundColor: props.value !== undefined ? props.value : "white" }}>
                 </div>
             </button>

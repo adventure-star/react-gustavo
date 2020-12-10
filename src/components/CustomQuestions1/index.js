@@ -28,23 +28,23 @@ class CustomQuestions1 extends Component {
 
   render() {
     return (
-      <div className="w-full mx-4 bg-orange-300 shadow-lg border border-blue-700 rounded-lg p-4" >
+      <div className="w-full m-4 bg-green-500 border rounded-lg p-4" >
+        <div className="w-full">
+          <div className="flex items-center">
+            <FontSelect disabled={!this.props.editable} value={this.props.content.fontfamily} onChange={this.handleSelect} />
+            <FontSizeSelect disabled={!this.props.editable} value={this.props.content.fontsize} onChange={this.handleSelect} />
+            <TextColorPicker disabled={!this.props.editable} value={this.props.content.textcolor} onChange={this.handleTextColor} />
+            <BGColorPicker disabled={!this.props.editable} value={this.props.content.bgcolor} onChange={this.handleBGColor} />
+          </div>
+        </div>
         <div className="w-full flex items-center">
-          <span className="mt-12 leading-4 w-28">
+          <span className="leading-4 w-28 text-white">
             Nombre de la<br /> pregunta
         </span>
           <div className="w-full">
-            <div className="w-full">
-              <div className="flex items-center">
-                <FontSelect disabled={!this.props.editable} value={this.props.content.fontfamily} onChange={this.handleSelect} />
-                <FontSizeSelect disabled={!this.props.editable} value={this.props.content.fontsize} onChange={this.handleSelect} />
-                <TextColorPicker disabled={!this.props.editable} value={this.props.content.textcolor} onChange={this.handleTextColor} />
-                <BGColorPicker disabled={!this.props.editable} value={this.props.content.bgcolor} onChange={this.handleBGColor} />
-              </div>
-            </div>
             <textarea
               name="title"
-              className={`w-full h-16 mt-8 mb-4 p-2 border rounded-md`}
+              className={`w-full h-16 mt-2 xl:mt-4 mb-2 xl:mb-4 p-2 border rounded-md`}
               style={{
                 fontFamily: this.props.content.fontfamily !== undefined ? this.props.content.fontfamily : "Arial",
                 fontSize: this.props.content.fontsize !== undefined ? this.props.content.fontsize : "12px",
@@ -60,7 +60,7 @@ class CustomQuestions1 extends Component {
           </div>
         </div>
         <div className="w-full flex items-center my-1">
-          <span className="w-28">Respuesta 1</span>
+          <span className="w-28 text-white">Respuesta 1</span>
           <input
             name="answer1"
             type="text"
@@ -71,7 +71,7 @@ class CustomQuestions1 extends Component {
           />
         </div>
         <div className="w-full flex items-center my-1">
-          <span className="w-28">Respuesta 2</span>
+          <span className="w-28 text-white">Respuesta 2</span>
           <input
             name="answer2"
             type="text"
@@ -82,7 +82,7 @@ class CustomQuestions1 extends Component {
           />
         </div>
         <div className="w-full flex items-center my-1">
-          <span className="w-28">Respuesta 3</span>
+          <span className="w-28 text-white">Respuesta 3</span>
           <input
             name="answer3"
             type="text"

@@ -5,7 +5,7 @@ const FontSizeSelect = (props) => {
     <select
       name="fontsize"
       value={props.value !== undefined ? props.value : "12px"}
-      className="mx-2 border border-blue-400 rounded-sm"
+      className="ml-1 border border-blue-400 rounded-sm"
       {...props}
     >
       <option value="12px">12</option>

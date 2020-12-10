@@ -332,7 +332,7 @@ class Board extends PureComponent {
                         onClick={this.onSaveButtonClick}
                         onEditableChange={this.onEditableChange}
                     >
-                        <div className="flex-none sm:flex px-6 lg:px-10 py-6 lg:py-10">
+                        <div className="flex-none sm:flex px-2 md:px-6 lg:px-10 py-6 lg:py-10">
                             <div className="w-full sm:w-2/3 px-4 sm:pl-3 sm:pr-0">
                                 <MainBoard
                                     id="main"

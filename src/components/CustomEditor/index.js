@@ -28,7 +28,7 @@ class CustomEditor extends Component {
 
   render() {
     return (
-      <div className="w-full mx-4 bg-orange-300 shadow-lg border border-blue-700 rounded-lg p-4">
+      <div className="w-full mx-4 bg-indigo-500 border rounded-lg p-4">
         <div className="flex items-center">
           <FontSelect disabled={!this.props.editable} value={this.props.content.fontfamily} onChange={this.handleSelect} />
           <FontSizeSelect disabled={!this.props.editable} value={this.props.content.fontsize} onChange={this.handleSelect} />
@@ -37,7 +37,7 @@ class CustomEditor extends Component {
         </div>
         <textarea
           name="title"
-          className={`w-full h-32 my-8 p-2 border rounded-md`}
+          className={`w-full md:h-16 lg:h-24 xl:h-32 my-4 xl:my-8 p-2 border rounded-md`}
           style={{
             fontFamily: this.props.content.fontfamily !== undefined ? this.props.content.fontfamily : "Arial",
             fontSize: this.props.content.fontsize !== undefined ? this.props.content.fontsize : "12px",
