@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiGetRecentProjects } from "../../services/news.js"
 import { Link } from 'react-router-dom';
-import { staticRecentLessons } from '../../services/commonService.js';
 import Moment from 'moment';
 
 
@@ -26,7 +25,6 @@ const MyLessonComponent = () => {
                 console.log(error);
             });
 
-        // setData(staticRecentLessons());
     }
 
     return (
@@ -60,7 +58,7 @@ const MyLessonComponent = () => {
                                 <div className="flex items-start">
                                     <img src="images/account-gray.png" className="object-none w-4 h-8" />
                                     <div className="">
-                                        <p className="font-semibold pl-2 h-6">{lesson.title !== null ? lesson.title : ""}</p>
+                                        <p className="font-semibold pl-2 h-6">{JSON.parse(lesson.content).title !== null ? JSON.parse(lesson.content).title : ""}</p>
                                         <p className="pl-2">{Moment(lesson.updated_at).format('YYYY-MM-DD')}</p>
                                     </div>
                                 </div>

@@ -150,11 +150,12 @@ class EditLesson extends PureComponent {
             });
         apiGetProjectById(this.props.match.params.id)
             .then(res => {
-                console.log("=====res", res);
+                console.log("=====res", JSON.parse(res.content));
                 if (res) {
+                    let data = JSON.parse(res.content);
                     this.setState({
-                        title: res.title,
-                        data: res.data
+                        title: data.title,
+                        data: data.data
                     })
                 }
             })
@@ -223,38 +224,27 @@ class EditLesson extends PureComponent {
         var newdata = {};
 
         newdata.title = this.state.title;
+        newdata.data = {};
 
         var index = 0;
 
         for (index = 0; index < 4; index++) {
 
-            newdata[index] = { main: { content: {} }, sub: { content: {} } };
+            newdata.data[index] = { main: { content: {} }, sub: { content: {} } };
 
             for (var propName in data[index].main) {
 
-                if (propName == "id" || propName == "type" || propName == "txttype") {
+                if (propName !== "children") {
                     console.log(data[index].main[propName])
-                    newdata[index].main[propName] = data[index].main[propName];
-
-                }
-                if (propName == "content") {
-                    for (var prop in data[index].main[propName]) {
-                        newdata[index].main[propName][prop] = data[index].main[propName][prop]
-                    }
+                    newdata.data[index].main[propName] = data[index].main[propName];
                 }
 
             }
             for (var propName in data[index].sub) {
 
-                if (propName == "id" || propName == "type" || propName == "txttype") {
+                if (propName !== "children") {
                     console.log(data[index].sub[propName])
-                    newdata[index].sub[propName] = data[index].sub[propName];
-
-                }
-                if (propName == "content") {
-                    for (var prop in data[index].sub[propName]) {
-                        newdata[index].sub[propName][prop] = data[index].sub[propName][prop]
-                    }
+                    newdata.data[index].sub[propName] = data[index].sub[propName];
                 }
 
             }
