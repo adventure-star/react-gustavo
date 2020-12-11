@@ -6,7 +6,7 @@ import SubBoard from '../../components/SubBoard';
 import VideoSource from '../../components/VideoSource';
 import TextSource from '../../components/TextSource';
 import ConfirmDialog from '../../components/ConfirmDialog';
-import { apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiUpdateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiGetProjectById } from '../../services/news';
+import { apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiGetLessonById, apiUpdateLesson } from '../../services/news';
 import LoadingOverlay from 'react-loading-overlay';
 import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
@@ -148,7 +148,7 @@ class EditLesson extends PureComponent {
                 console.log('===== error: ', error);
                 // ...
             });
-        apiGetProjectById(this.props.match.params.id)
+        apiGetLessonById(this.props.match.params.id)
             .then(res => {
                 console.log("=====res", JSON.parse(res.content));
                 if (res) {
@@ -268,7 +268,7 @@ class EditLesson extends PureComponent {
 
         this.setState({ isSaving: true });
 
-        apiUpdateProject(this.props.match.params.id, this.dataModify(this.state.data))
+        apiUpdateLesson(this.props.match.params.id, this.dataModify(this.state.data))
             .then(res => {
                 console.log("=====res", res);
                 if (res) {

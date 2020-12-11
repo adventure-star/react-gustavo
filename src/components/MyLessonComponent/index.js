@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { apiGetRecentProjects } from "../../services/news.js"
+import { apiGetRecentLessons } from "../../services/news.js"
 import { Link } from 'react-router-dom';
 import Moment from 'moment';
 
@@ -14,7 +14,7 @@ const MyLessonComponent = () => {
 
     const getRecentLessons = () => {
 
-        apiGetRecentProjects()
+        apiGetRecentLessons()
             .then(res => {
                 if (res) {
                     console.log(res)

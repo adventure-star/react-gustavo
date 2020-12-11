@@ -6,7 +6,7 @@ import SubBoard from '../../components/SubBoard';
 import VideoSource from '../../components/VideoSource';
 import TextSource from '../../components/TextSource';
 import ConfirmDialog from '../../components/ConfirmDialog';
-import { apiDraftCreate, apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiCreateProject, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos } from '../../services/news';
+import { apiGetAllImages, apiGetAllVideos, apiGetAllTexts, apiGetAllAnimations, apiGetAllPresentations, apiGetAllLinkVideos, apiCreateLesson } from '../../services/news';
 import LoadingOverlay from 'react-loading-overlay';
 import { DotLoader } from 'react-spinners';
 import AnimationSource from '../../components/AnimationSource';
@@ -250,7 +250,7 @@ class Lesson extends PureComponent {
 
         this.setState({ isSaving: true });
 
-        apiCreateProject(this.dataModify(this.state.data))
+        apiCreateLesson(this.dataModify(this.state.data))
             .then(res => {
                 console.log("=====res", res);
                 if (res) {

@@ -56,18 +56,18 @@ export async function apiGetAllLinkVideos() {
   return await query(`/linkvideos/all`);
 }
 
-export async function apiGetRecentProjects() {
-  return await query(`/project/recent`);
+export async function apiGetRecentLessons() {
+  return await query(`/lesson/recent`);
 }
 
-export async function apiCreateProject(data) {
-  return await jsonQuery(`/project/create`, 'POST', data, true);
+export async function apiCreateLesson(data) {
+  return await jsonQuery(`/lesson/create`, 'POST', data, true);
 }
 
-export async function apiUpdateProject(id, data) {
-  return await jsonQuery(`/project/${id}`, 'PUT', data, true);
+export async function apiUpdateLesson(id, data) {
+  return await jsonQuery(`/lesson/${id}`, 'PUT', data, true);
 }
 
-export async function apiGetProjectById(id) {
-  return await query(`/project/${id}/`);
+export async function apiGetLessonById(id) {
+  return await query(`/lesson/${id}/`);
 }
