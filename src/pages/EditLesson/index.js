@@ -53,7 +53,6 @@ class EditLesson extends PureComponent {
     }
 
     handleScreenChange() {
-        console.log(window.innerWidth);
 
         var width = window.innerWidth;
         var peritem = 3;
@@ -68,13 +67,10 @@ class EditLesson extends PureComponent {
 
     componentDidMount() {
 
-        console.log("=====id", this.props.match.params.id);
-
         this.handleScreenChange();
 
         apiGetAllImages()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const images = res.map(v => ({ ...v, panelId: "imgsource" }))
                     this.setState({ images: images });
@@ -87,7 +83,6 @@ class EditLesson extends PureComponent {
             });
         apiGetAllVideos()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const videos = res.map(v => ({ ...v, panelId: "vidsource" }))
                     this.setState({ videos: videos });
@@ -100,7 +95,6 @@ class EditLesson extends PureComponent {
             });
         apiGetAllTexts()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const texts = res.map(v => ({ ...v, panelId: "txtsource" }))
                     this.setState({ texts: texts });
@@ -113,7 +107,6 @@ class EditLesson extends PureComponent {
             });
         apiGetAllAnimations()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const anims = res.map(v => ({ ...v, panelId: "animsource" }))
                     this.setState({ anims: anims });
@@ -126,7 +119,6 @@ class EditLesson extends PureComponent {
             });
         apiGetAllPresentations()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const presentations = res.map(v => ({ ...v, panelId: "pressource" }))
                     this.setState({ presentations: presentations });
@@ -139,7 +131,6 @@ class EditLesson extends PureComponent {
             });
         apiGetAllLinkVideos()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const linkvideos = res.map(v => ({ ...v, panelId: "linkvidsource" }))
                     this.setState({ linkvideos: linkvideos });
@@ -152,7 +143,6 @@ class EditLesson extends PureComponent {
             });
         apiGetLessonById(this.props.match.params.id)
             .then(res => {
-                console.log("=====res", JSON.parse(res.content));
                 if (res) {
                     let data = JSON.parse(res.content);
                     this.setState({
@@ -176,9 +166,6 @@ class EditLesson extends PureComponent {
 
     onDrop(item, targetId) {
 
-        console.log("===item", item);
-        console.log("===targetId", targetId);
-
         let page = this.state.page;
 
         var allstates = this.state.data;
@@ -200,13 +187,9 @@ class EditLesson extends PureComponent {
                 answer3: "answer 3",
             };
 
-            console.log("currentstaates", currentstates)
-
             let newstate = { ...allstates };
 
             newstate[page] = currentstates;
-
-            console.log("=====new_state", newstate);
 
             this.setState({ data: newstate });
 
@@ -215,7 +198,6 @@ class EditLesson extends PureComponent {
     }
 
     onPageChange = (newpage) => {
-        console.log("=====new_page", newpage);
         if (this.state.page !== newpage) {
             this.setState({ page: newpage });
         }
@@ -237,7 +219,6 @@ class EditLesson extends PureComponent {
             for (var propMain in data[index].main) {
 
                 if (propMain !== "children") {
-                    console.log(data[index].main[propMain])
                     newdata.data[index].main[propMain] = data[index].main[propMain];
                 }
 
@@ -246,7 +227,6 @@ class EditLesson extends PureComponent {
             for (var propSub in data[index].sub) {
 
                 if (propSub !== "children") {
-                    console.log(data[index].sub[propSub])
                     newdata.data[index].sub[propSub] = data[index].sub[propSub];
                 }
 
@@ -266,14 +246,10 @@ class EditLesson extends PureComponent {
     saveDraft = () => {
 
         this.setState({ modal: false });
-
-        console.log("=====state", this.state.data);
-
         this.setState({ isSaving: true });
 
         apiUpdateLesson(this.props.match.params.id, this.dataModify(this.state.data))
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     this.setState({ isSaving: false });
                 }
@@ -287,9 +263,6 @@ class EditLesson extends PureComponent {
     }
 
     getStates = ([panelId, [name, value]]) => {
-
-        console.log("==name", name)
-        console.log("==value", value)
 
         let page = this.state.page;
 
@@ -321,13 +294,10 @@ class EditLesson extends PureComponent {
     onEditableChange = (value) => {
         this.setState({ editable: value });
     }
-    handlePreviewClose = (event) => {
-        console.log(event);
-    }
     onPreviewOpen = () => {
         this.setState({ isPreview: true });
     }
-    previewClose = () => {
+    onPreviewClose = () => {
         this.setState({ isPreview: false });
     }
 
@@ -415,7 +385,7 @@ class EditLesson extends PureComponent {
                         <ConfirmDialog open={this.state.modal} onClose={() => { this.setState({ modal: false }) }} onConfirm={this.saveDraft} />
                         <PreviewModal
                             open={this.state.isPreview}
-                            handlePreviewClose={this.previewClose}
+                            handlePreviewClose={this.onPreviewClose}
                             data={this.state.data[this.state.page]}
                         >
                         </PreviewModal>

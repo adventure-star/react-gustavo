@@ -32,7 +32,7 @@ const LessonTemplates = () => {
                 <div className="w-full flex-none sm:flex items-center">
                     <div className="flex w-full sm:w-160 relative">
                         <div className="w-10 h-10 absolute left-0 bg-customPurple flex items-center rounded-lg">
-                            <img src="/images/search-icon.png" className="mx-auto" />
+                            <img src="/images/search-icon.png" alt="search-icon" className="mx-auto" />
                         </div>
                         <input type="text" className="w-full h-10 bg-customBlue rounded-lg pl-16 pr-8 text-lg font-custom-light border border-gray-300 focus:shadow-outline" placeholder="Buscar..." />
                     </div>
@@ -59,7 +59,7 @@ const LessonTemplates = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 col-gap-4 row-gap-4">
                                     {data[key] !== [] && data[key].map((item) => (
                                         <Link to="/" key={item.id} className="mx-auto">
-                                            <img src={item.src} className="object-none object-center rounded-lg hover:opacity-50" style={{ width: "170px", height: "170px" }} />
+                                            <img src={item.src} alt="lesson-templates" className="object-none object-center rounded-lg hover:opacity-50" style={{ width: "170px", height: "170px" }} />
                                         </Link>
                                     ))
                                     }

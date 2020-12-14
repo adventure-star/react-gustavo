@@ -30,7 +30,7 @@ class MainBoard extends Component {
                     <img src="/images/board-pad.png" alt="board-pad" className="w-full" />
                     <div className="w-full h-full absolute left-0 top-0 flex items-center">
                         <div className="text-center w-full pt-4 sm:pt-8">
-                            <img src="/images/drag-img.png" className="mx-auto" />
+                            <img src="/images/drag-img.png" alt="drag-img" className="mx-auto" />
                             <span className="font-bold pt-4">
                                 Drag the image and drop
                                     <br />
@@ -38,14 +38,14 @@ class MainBoard extends Component {
                             </span>
                         </div>
                     </div>
-                    {this.state.type == "image" &&
+                    {this.state.type === "image" &&
                         <div key={this.props.media.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                             <div className="text-center w-full h-full">
-                                <img src={this.props.media.src} className="h-full mx-auto" />
+                                <img src={this.props.media.src} alt="image" className="h-full mx-auto" />
                             </div>
                         </div>
                     }
-                    {this.state.type == "video" &&
+                    {this.state.type === "video" &&
                         <div key={this.props.media.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                             <div className="text-center w-full h-full">
                                 <video className="h-full mx-auto" autoPlay controls>
@@ -54,12 +54,12 @@ class MainBoard extends Component {
                             </div>
                         </div>
                     }
-                    {this.state.type == "text" && this.state.txttype == "normal" &&
+                    {this.state.type === "text" && this.state.txttype === "normal" &&
                         <div className="w-full h-full absolute left-0 top-0 flex items-center">
                             <CustomEditor editable={this.state.editable} content={this.props.media.content} onChange={this.onChange} />
                         </div>
                     }
-                    {this.state.type == "text" && this.state.txttype == "question1" &&
+                    {this.state.type === "text" && this.state.txttype === "question1" &&
                         <div className="w-full h-full absolute left-0 top-0 flex items-center">
                             <CustomQuestions1 editable={this.props.editable} content={this.props.media.content} onChange={this.onChange} />
                         </div>

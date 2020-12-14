@@ -17,7 +17,6 @@ const MyLessonComponent = () => {
         apiGetRecentLessons()
             .then(res => {
                 if (res) {
-                    console.log(res)
                     setData(res);
                 }
             })

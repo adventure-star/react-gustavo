@@ -53,7 +53,6 @@ class Lesson extends PureComponent {
     }
 
     handleScreenChange() {
-        console.log(window.innerWidth);
 
         var width = window.innerWidth;
         var peritem = 3;
@@ -72,7 +71,6 @@ class Lesson extends PureComponent {
 
         apiGetAllImages()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const images = res.map(v => ({ ...v, panelId: "imgsource" }))
                     this.setState({ images: images });
@@ -85,7 +83,6 @@ class Lesson extends PureComponent {
             });
         apiGetAllVideos()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const videos = res.map(v => ({ ...v, panelId: "vidsource" }))
                     this.setState({ videos: videos });
@@ -98,7 +95,6 @@ class Lesson extends PureComponent {
             });
         apiGetAllTexts()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const texts = res.map(v => ({ ...v, panelId: "txtsource" }))
                     this.setState({ texts: texts });
@@ -111,7 +107,6 @@ class Lesson extends PureComponent {
             });
         apiGetAllAnimations()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const anims = res.map(v => ({ ...v, panelId: "animsource" }))
                     this.setState({ anims: anims });
@@ -124,7 +119,6 @@ class Lesson extends PureComponent {
             });
         apiGetAllPresentations()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const presentations = res.map(v => ({ ...v, panelId: "pressource" }))
                     this.setState({ presentations: presentations });
@@ -137,7 +131,6 @@ class Lesson extends PureComponent {
             });
         apiGetAllLinkVideos()
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     const linkvideos = res.map(v => ({ ...v, panelId: "linkvidsource" }))
                     this.setState({ linkvideos: linkvideos });
@@ -157,9 +150,6 @@ class Lesson extends PureComponent {
     }
 
     onDrop(item, targetId) {
-
-        console.log("===item", item);
-        console.log("===targetId", targetId);
 
         let page = this.state.page;
 
@@ -182,13 +172,9 @@ class Lesson extends PureComponent {
                 answer3: "answer 3",
             };
 
-            console.log("currentstaates", currentstates)
-
             let newstate = { ...allstates };
 
             newstate[page] = currentstates;
-
-            console.log("=====new_state", newstate);
 
             this.setState({ data: newstate });
 
@@ -197,7 +183,6 @@ class Lesson extends PureComponent {
     }
 
     onPageChange = (newpage) => {
-        console.log("=====new_page", newpage);
         if (this.state.page !== newpage) {
             this.setState({ page: newpage });
         }
@@ -219,7 +204,6 @@ class Lesson extends PureComponent {
             for (var propMain in data[index].main) {
 
                 if (propMain !== "children") {
-                    console.log(data[index].main[propMain])
                     newdata.data[index].main[propMain] = data[index].main[propMain];
                 }
 
@@ -227,7 +211,6 @@ class Lesson extends PureComponent {
             for (var propSub in data[index].sub) {
 
                 if (propSub !== "children") {
-                    console.log(data[index].sub[propSub])
                     newdata.data[index].sub[propSub] = data[index].sub[propSub];
                 }
 
@@ -247,14 +230,10 @@ class Lesson extends PureComponent {
     saveDraft = () => {
 
         this.setState({ modal: false });
-
-        console.log("=====state", this.state.data);
-
         this.setState({ isSaving: true });
 
         apiCreateLesson(this.dataModify(this.state.data))
             .then(res => {
-                console.log("=====res", res);
                 if (res) {
                     this.setState({ isSaving: false });
                 }
@@ -268,9 +247,6 @@ class Lesson extends PureComponent {
     }
 
     getStates = ([panelId, [name, value]]) => {
-
-        console.log("==name", name)
-        console.log("==value", value)
 
         let page = this.state.page;
 
@@ -305,7 +281,7 @@ class Lesson extends PureComponent {
     onPreviewOpen = () => {
         this.setState({ isPreview: true });
     }
-    previewClose = () => {
+    onPreviewClose = () => {
         this.setState({ isPreview: false });
     }
 
@@ -392,7 +368,7 @@ class Lesson extends PureComponent {
                         <ConfirmDialog open={this.state.modal} onClose={() => { this.setState({ modal: false }) }} onConfirm={this.saveDraft} />
                         <PreviewModal
                             open={this.state.isPreview}
-                            handlePreviewClose={this.previewClose}
+                            handlePreviewClose={this.onPreviewClose}
                             data={this.state.data[this.state.page]}
                         >
                         </PreviewModal>
