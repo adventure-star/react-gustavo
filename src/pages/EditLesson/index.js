@@ -184,7 +184,7 @@ class EditLesson extends PureComponent {
         var allstates = this.state.data;
         var currentstates = allstates[page];
 
-        if (!(currentstates[targetId].type == item.type && currentstates[targetId].id == item.id)) {
+        if (!(currentstates[targetId].type === item.type && currentstates[targetId].id === item.id)) {
 
             delete allstates[page];
 
@@ -234,19 +234,20 @@ class EditLesson extends PureComponent {
 
             newdata.data[index] = { main: { content: {} }, sub: { content: {} } };
 
-            for (var propName in data[index].main) {
+            for (var propMain in data[index].main) {
 
-                if (propName !== "children") {
-                    console.log(data[index].main[propName])
-                    newdata.data[index].main[propName] = data[index].main[propName];
+                if (propMain !== "children") {
+                    console.log(data[index].main[propMain])
+                    newdata.data[index].main[propMain] = data[index].main[propMain];
                 }
 
             }
-            for (var propName in data[index].sub) {
 
-                if (propName !== "children") {
-                    console.log(data[index].sub[propName])
-                    newdata.data[index].sub[propName] = data[index].sub[propName];
+            for (var propSub in data[index].sub) {
+
+                if (propSub !== "children") {
+                    console.log(data[index].sub[propSub])
+                    newdata.data[index].sub[propSub] = data[index].sub[propSub];
                 }
 
             }
