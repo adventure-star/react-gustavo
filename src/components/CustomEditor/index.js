@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, Component } from 'react'
+import React, { Component } from 'react'
 import FontSelect from '../FontSelect';
 import FontSizeSelect from '../FontSizeSelect';
 import TextColorPicker from '../TextColorPicker';

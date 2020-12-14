@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./index.css";
 import MyLessonComponent from '../../components/MyLessonComponent';
 import LessonTemplates from '../../components/LessonTemplates';
