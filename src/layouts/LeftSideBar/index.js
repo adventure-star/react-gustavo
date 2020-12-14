@@ -9,11 +9,7 @@ const LeftSideBar = (props) => {
 
     const lastPos = location.pathname.lastIndexOf('/');
     const len = location.pathname.length;
-    const pathName = location.pathname.substr(0, lastPos == 0 ? len : lastPos);
-
-    useEffect(() => {
-        console.log(pathName);
-    }, []);
+    const pathName = location.pathname.substr(0, lastPos === 0 ? len : lastPos);
 
     const { children, ...rest } = props;
 
