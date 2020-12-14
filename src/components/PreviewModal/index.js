@@ -1,7 +1,5 @@
 import React from 'react'
 import { makeStyles, Modal, Fade } from '@material-ui/core';
-import CustomEditor from '../CustomEditor';
-import CustomQuestions1 from '../CustomQuestions1';
 import CustomEditorPreview from '../CustomEditorPreview';
 import CustomQuestionPrevew from '../CustomQuestionPreview';
 
@@ -39,13 +37,13 @@ const PreviewModal = (props) => {
             <Fade in={props.open}>
                 <div className={classes.paper}>
                     <div className="relative">
-                        <img src="/images/board-pad.png" className="w-full h-full" />
+                        <img src="/images/board-pad.png" alt="board-pad" className="w-full h-full" />
                         <div className={`${(maintype !== undefined && subtype !== undefined) ? `flex` : `flex-none`} w-full h-full absolute left-0 top-0 text-center`}>
                             <div className={`${maintype !== undefined ? `block` : `hidden`} ${subtype !== undefined ? `w-1/2` : `w-full`} h-full relative`}>
                                 {maintype == "image" &&
                                     <div key={maindata.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={maindata.src} className="h-full mx-auto" />
+                                            <img src={maindata.src} alt="maindata" className="h-full mx-auto" />
                                         </div>
                                     </div>
                                 }
@@ -73,7 +71,7 @@ const PreviewModal = (props) => {
                                 {subtype == "image" &&
                                     <div key={subdata.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={subdata.src} className="h-full mx-auto" />
+                                            <img src={subdata.src} alt="subdata" className="h-full mx-auto" />
                                         </div>
                                     </div>
                                 }

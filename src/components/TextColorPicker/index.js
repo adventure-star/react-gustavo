@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import ColorPicker from 'material-ui-color-picker';
 
 const TextColorPicker = (props) => {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const LeftSideBar = (props) => {
@@ -11,7 +11,7 @@ const LeftSideBar = (props) => {
     const len = location.pathname.length;
     const pathName = location.pathname.substr(0, lastPos === 0 ? len : lastPos);
 
-    const { children, ...rest } = props;
+    const { children } = props;
 
     const links = [
         {
