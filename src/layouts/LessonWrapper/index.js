@@ -79,7 +79,10 @@ const LessonWrapper = (props) => {
             <img src="/images/background.png" className="hidden md:block absolute left-0 top-0 h-full" style={{ zIndex: "1", opacity: "0.8" }} />
             <div className="flex-none md:flex w-full" style={{ zIndex: "10" }}>
                 <div className="w-full md:w-1/5 pt-3 pb-3 md:pt-20 md:pb-0 md:h-auto relative" style={{ minHeight: "64px" }}>
-                    <img src="/images/bars.png" className="absolute left-8 top-8 cursor-pointer" />
+                    {/* <img src="/images/bars.png" className="absolute left-8 top-8 cursor-pointer" /> */}
+                    <Link to="/">
+                    <img src="/images/nav-home.png" className="absolute left-8 top-8 cursor-pointer" />
+                    </Link>
                     <div className="w-full h-12">
                         <button
                             className="flex float-right w-10 h-10 items-center px-3 py-2 text-yellow-1 border border-yellow-2 rounded md:hidden mr-4"
