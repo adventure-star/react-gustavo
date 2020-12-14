@@ -81,7 +81,7 @@ const LessonWrapper = (props) => {
                 <div className="w-full md:w-1/5 pt-3 pb-3 md:pt-20 md:pb-0 md:h-auto relative" style={{ minHeight: "64px" }}>
                     {/* <img src="/images/bars.png" className="absolute left-8 top-8 cursor-pointer" /> */}
                     <Link to="/">
-                    <img src="/images/nav-home.png" className="absolute left-8 top-8 cursor-pointer" />
+                        <img src="/images/nav-home.png" className="absolute left-8 top-8 cursor-pointer hover:opacity-50" />
                     </Link>
                     <div className="w-full h-12">
                         <button
@@ -108,7 +108,7 @@ const LessonWrapper = (props) => {
                                 <div className="text-center">
                                     <div className="relative">
                                         <img src="/images/panel-base.png" className={`rounded-lg`} />
-                                        <div className={`${props.page == page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{backgroundColor: page.maskcolor}}></div>
+                                        <div className={`${props.page == page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{ backgroundColor: page.maskcolor }}></div>
                                     </div>
                                     <span className="text-white font-bold leading-loose">{page.title}</span>
                                 </div>
@@ -123,7 +123,7 @@ const LessonWrapper = (props) => {
                             <TitleInput defaultValue={props.title} onChange={onTitleChange} />
                         </div>
                         <div className="flex-none sm:flex items-center justify-between mt-4 sm:mt-8 large:mt-0">
-                            <PreviewButton onClick={props.onPreviewClick}/>
+                            <PreviewButton onClick={props.onPreviewClick} />
                             <SaveButton onClick={props.onClick} />
                             <PostDropDown />
                         </div>
