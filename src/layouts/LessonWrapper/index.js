@@ -14,7 +14,7 @@ const LessonWrapper = (props) => {
 
     const lastPos = location.pathname.lastIndexOf('/');
     const len = location.pathname.length;
-    const pathName = location.pathname.substr(0, lastPos == 0 ? len : lastPos);
+    const pathName = location.pathname.substr(0, lastPos === 0 ? len : lastPos);
 
     const links = [
         {
@@ -52,8 +52,8 @@ const LessonWrapper = (props) => {
     const HeaderLinks = links.map((link) => (
         <Link to={link.link} key={link.name} className="relative flex items-center py-4 bg-customPrimary hover:bg-blue-700" onClick={() => toggleExpansion(false)}>
             <div className="flex md:block lg:flex items-center pl-10 md:pl-0 lg:pl-10 mx-0 md:mx-auto lg:mx-0">
-                <img src="/images/navpicker.png" className={`${pathName == link.link ? `block` : `hidden`} absolute left-0`} />
-                <img src={link.src} className="mx-0 md:mx-auto lg:mx-0" />
+                <img src="/images/navpicker.png" className={`${pathName === link.link ? `block` : `hidden`} absolute left-0`} />
+                <img src={link.src} alt="links" className="mx-0 md:mx-auto lg:mx-0" />
                 <p className="text-white pl-6 md:pl-0 lg:pl-6 pt-0 md:pt-2 lg:pt-0">{link.name}</p>
             </div>
         </Link>
@@ -76,12 +76,12 @@ const LessonWrapper = (props) => {
 
     return (
         <div className="w-full flex bg-customPrimary relative">
-            <img src="/images/background.png" className="hidden md:block absolute left-0 top-0 h-full" style={{ zIndex: "1", opacity: "0.8" }} />
+            <img src="/images/background.png" alt="background" className="hidden md:block absolute left-0 top-0 h-full" style={{ zIndex: "1", opacity: "0.8" }} />
             <div className="flex-none md:flex w-full" style={{ zIndex: "10" }}>
                 <div className="w-full md:w-1/5 pt-3 pb-3 md:pt-20 md:pb-0 md:h-auto relative" style={{ minHeight: "64px" }}>
-                    {/* <img src="/images/bars.png" className="absolute left-8 top-8 cursor-pointer" /> */}
+                    {/* <img src="/images/bars.png" alt="bars" className="absolute left-8 top-8 cursor-pointer" /> */}
                     <Link to="/">
-                        <img src="/images/nav-home.png" className="absolute left-8 top-8 cursor-pointer hover:opacity-50" />
+                        <img src="/images/nav-home.png" alt="nav-home" className="absolute left-8 top-8 cursor-pointer hover:opacity-50" />
                     </Link>
                     <div className="w-full h-12">
                         <button
@@ -103,12 +103,12 @@ const LessonWrapper = (props) => {
                     </div>
                     <div className="grid grid-cols-1 row-gap-12">
                         {pages.map(page => (
-                            <div key={page.id} className={`flex items-center hover:bg-blue-400 px-2 pt-4 cursor-pointer ${props.page == page.id ? `bg-blue-400` : `bg-transparent`}`} onClick={() => { props.onChange(page.id) }}>
+                            <div key={page.id} className={`flex items-center hover:bg-blue-400 px-2 pt-4 cursor-pointer ${props.page === page.id ? `bg-blue-400` : `bg-transparent`}`} onClick={() => { props.onChange(page.id) }}>
                                 <span className="text-white font-bold pr-2 pb-8">{page.number}</span>
                                 <div className="text-center">
                                     <div className="relative">
-                                        <img src="/images/panel-base.png" className={`rounded-lg`} />
-                                        <div className={`${props.page == page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{ backgroundColor: page.maskcolor }}></div>
+                                        <img src="/images/panel-base.png" alt="panel-base" className={`rounded-lg`} />
+                                        <div className={`${props.page === page.id ? `opacity-25` : `opacity-100`} absolute left-0 top-0 w-full h-full rounded-lg`} style={{ backgroundColor: page.maskcolor }}></div>
                                     </div>
                                     <span className="text-white font-bold leading-loose">{page.title}</span>
                                 </div>
