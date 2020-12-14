@@ -303,6 +303,7 @@ class Lesson extends PureComponent {
                         onTitleChange={this.onTitleChange}
                         onChange={this.onPageChange}
                         onClick={this.onSaveButtonClick}
+                        editable={this.state.editable}
                         onEditableChange={this.onEditableChange}
                         onPreviewClick={this.onPreviewOpen}
                     >

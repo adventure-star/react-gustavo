@@ -4,7 +4,7 @@ import { Radio, RadioGroup, FormControlLabel } from '@material-ui/core'
 const CustomQuestionPrevew = (props) => {
     return (
         <>
-            <div className="w-full max-h-full border border-green-500 rounded-lg px-4 py-8 overflow-y-auto">
+            <div className="w-full max-h-full px-4 py-8 overflow-y-auto">
                 <div className="flex">
                     <p style={{
                         fontFamily: props.content.fontfamily,
