@@ -120,7 +120,7 @@ const LessonWrapper = (props) => {
                             <TitleInput defaultValue={props.title} onChange={onTitleChange} />
                         </div>
                         <div className="flex-none sm:flex items-center justify-between mt-4 sm:mt-8 large:mt-0">
-                            <PreviewButton />
+                            <PreviewButton onClick={props.onPreviewClick}/>
                             <SaveButton onClick={props.onClick} />
                             <PostDropDown />
                         </div>

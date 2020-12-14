@@ -13,6 +13,7 @@ import AnimationSource from '../../components/AnimationSource';
 import PresentationSource from '../../components/PresentationSource';
 import LinkVideoSource from '../../components/LinkVideoSource';
 import LessonWrapper from '../../layouts/LessonWrapper';
+import PreviewModal from '../../components/PreviewModal';
 
 
 class Lesson extends PureComponent {
@@ -39,7 +40,8 @@ class Lesson extends PureComponent {
             editable: true,
             isLoading: true,
             isSaving: false,
-            peritem: 3
+            peritem: 3,
+            isPreview: false
         };
 
         this.onDrop = this.onDrop.bind(this);
@@ -300,6 +302,12 @@ class Lesson extends PureComponent {
     onEditableChange = (value) => {
         this.setState({ editable: value });
     }
+    onPreviewOpen = () => {
+        this.setState({ isPreview: true });
+    }
+    previewClose = () => {
+        this.setState({ isPreview: false });
+    }
 
     render() {
         return (
@@ -320,6 +328,7 @@ class Lesson extends PureComponent {
                         onChange={this.onPageChange}
                         onClick={this.onSaveButtonClick}
                         onEditableChange={this.onEditableChange}
+                        onPreviewClick={this.onPreviewOpen}
                     >
                         <div className="flex-none sm:flex px-2 md:px-6 lg:px-10 py-6 lg:py-10">
                             <div className="w-full sm:w-2/3 px-4 sm:pl-3 sm:pr-0">
@@ -381,6 +390,12 @@ class Lesson extends PureComponent {
                             </div>
                         </div>
                         <ConfirmDialog open={this.state.modal} onClose={() => { this.setState({ modal: false }) }} onConfirm={this.saveDraft} />
+                        <PreviewModal
+                            open={this.state.isPreview}
+                            handlePreviewClose={this.previewClose}
+                            data={this.state.data[this.state.page]}
+                        >
+                        </PreviewModal>
                     </LessonWrapper>
                 </LoadingOverlay>
             </LoadingOverlay>
