@@ -13,7 +13,7 @@ const PostDropDown = () => {
             <div className="w-full h-12 sm:w-auto mx-0 sm:mx-3 mt-4 sm:mt-0 relative" style={{ zIndex: "5" }}>
                 <button className="flex w-full sm:w-48 items-center justify-between h-full rounded-md bg-customYellow px-4" onClick={() => setState(!state)} >
                     <span className="text-black">Publicar</span>
-                    <img src="/images/dropdown-icon.png" />
+                    <img src="/images/dropdown-icon.png" alt="dropdown-icon" />
                 </button>
                 {state &&
                     <div className="w-full sm:w-auto bg-white cursor-pointer shadow-xl rounded-sm">
