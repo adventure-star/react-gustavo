@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Component } from 'react'
+import React, { Component } from 'react'
 import { Droppable } from '../../components';
 import CustomEditor from '../CustomEditor';
 import CustomQuestions1 from '../CustomQuestions1';
