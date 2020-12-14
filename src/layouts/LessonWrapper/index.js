@@ -120,7 +120,7 @@ const LessonWrapper = (props) => {
                     <div className="w-full bg-customGray rounded-none md:rounded-tl-large flex-none large:flex items-center justify-between px-8 lg:px-16 py-4 large:py-2 text-2xl h-auto large:h-86">
                         <div className="flex-none sm:flex items-center justify-between">
                             <EditToggle onChange={onEditableChange} />
-                            <TitleInput defaultValue={props.title} onChange={onTitleChange} />
+                            <TitleInput disabled={!props.editable} defaultValue={props.title} onChange={onTitleChange} />
                         </div>
                         <div className="flex-none sm:flex items-center justify-between mt-4 sm:mt-8 large:mt-0">
                             <PreviewButton onClick={props.onPreviewClick} />
