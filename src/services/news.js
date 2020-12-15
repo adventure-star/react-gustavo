@@ -71,3 +71,11 @@ export async function apiUpdateLesson(id, data) {
 export async function apiGetLessonById(id) {
   return await query(`/lesson/${id}/`);
 }
+
+export async function apiCreateLessonHistory(data) {
+  return await jsonQuery(`/lesson/historycreate`, 'POST', data, true);
+}
+
+export async function apiGetLessonHistory() {
+  return await query(`/lesson/recenthistory`);
+}

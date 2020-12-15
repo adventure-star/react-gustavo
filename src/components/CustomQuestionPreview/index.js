@@ -15,13 +15,12 @@ const CustomQuestionPrevew = (props) => {
                         {props.content.title}
                     </p>
                 </div>
-                <RadioGroup name="answers" className="mx-auto w-4/5 mt-4">
+                <RadioGroup name="answers" className="mx-auto w-4/5 mt-4" onChange={props.onChange}>
                     <FormControlLabel value="1" control={<Radio />} label={props.content.answer1} />
                     <FormControlLabel value="2" control={<Radio />} label={props.content.answer2} />
                     <FormControlLabel value="3" control={<Radio />} label={props.content.answer3} />
                 </RadioGroup>
             </div>
-
         </>
     )
 }
