@@ -3,6 +3,7 @@ import { makeStyles, Modal, Fade, Button } from '@material-ui/core';
 import CustomEditorPreview from '../CustomEditorPreview';
 import CustomQuestionPrevew from '../CustomQuestionPreview';
 import { apiGetLessonById, apiCreateLessonHistory } from '../../services/news';
+import * as _ from 'lodash';
 
 const TotalPreviewModal = (props) => {
 
@@ -25,10 +26,10 @@ const TotalPreviewModal = (props) => {
     const [title, setTitle] = useState(null);
     const [data, setData] = useState(
         {
-            0: { main: { content: {} }, sub: { content: {} } },
-            1: { main: { content: {} }, sub: { content: {} } },
-            2: { main: { content: {} }, sub: { content: {} } },
-            3: { main: { content: {} }, sub: { content: {} } },
+            0: { main: { content: { value: "1" } }, sub: { content: { value: "1" } } },
+            1: { main: { content: { value: "1" } }, sub: { content: { value: "1" } } },
+            2: { main: { content: { value: "1" } }, sub: { content: { value: "1" } } },
+            3: { main: { content: { value: "1" } }, sub: { content: { value: "1" } } },
         }
     );
 
@@ -48,7 +49,13 @@ const TotalPreviewModal = (props) => {
 
                     let data = JSON.parse(res.content);
                     setTitle(data.title);
-                    setData(data.data);
+
+                    let newdata = data.data;
+                    for (var i = 0; i <= 3; i++) {
+                        newdata[i].main.content.value = "1";
+                        newdata[i].sub.content.value = "1";
+                    }
+                    setData(newdata);
                 }
             })
             .catch(function (err) {
@@ -63,14 +70,17 @@ const TotalPreviewModal = (props) => {
     }
     const handleMainRadioGroup = (event) => {
         console.log(event.target.value);
-        let state = data;
-        state[page].main.value = event.target.value;
+        let state = _.clone(data);
+        delete state[page].main.content.value;
+        state[page].main.content.value = event.target.value;
         setData(state);
     }
     const handleSubRadioGroup = (event) => {
         console.log(event.target.value);
-        let state = data;
-        state[page].sub.value = event.target.value;
+        let state = _.clone(data);
+        delete state[page].sub.content.value;
+        state[page].sub.content.value = event.target.value;
+        console.log(state);
         setData(state);
     }
     const dataModify = (data) => {
@@ -163,7 +173,7 @@ const TotalPreviewModal = (props) => {
                                 }
                                 {data !== null && data[page].main.type === "text" && data[page].main.txttype === "question1" &&
                                     <div className="w-full h-full absolute left-0 top-0 flex items-center p-4">
-                                        <CustomQuestionPrevew content={data[page].main.content} onChange={handleMainRadioGroup} />
+                                        <CustomQuestionPrevew content={data[page].main.content} checked={data[page].main.content.value} onChange={handleMainRadioGroup} />
                                     </div>
                                 }
                             </div>
