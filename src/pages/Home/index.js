@@ -15,7 +15,7 @@ const Home = (props) => {
             <LessonTemplates />
             <MyLessonComponent />
             <TestComponent />
-            {/* <TestComponent1 /> */}
+            <TestComponent1 />
         </WithHeaderLayout>
     )
 }

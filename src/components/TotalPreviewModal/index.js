@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { makeStyles, Modal, Fade, Button } from '@material-ui/core';
 import CustomEditorPreview from '../CustomEditorPreview';
 import CustomQuestionPrevew from '../CustomQuestionPreview';
-import { apiGetLessonById, apiCreateLessonHistory } from '../../services/news';
+import { apiGetLessonById, apiCreateLessonHistory, apiGetLessonHistoryById } from '../../services/news';
 import * as _ from 'lodash';
 
 const TotalPreviewModal = (props) => {
@@ -19,6 +19,7 @@ const TotalPreviewModal = (props) => {
             boxShadow: theme.shadows[5],
             padding: theme.spacing(1, 1, 1),
             width: "70%",
+            borderRadius: "58px"
         },
     }));
 
@@ -36,31 +37,46 @@ const TotalPreviewModal = (props) => {
     const classes = useStyles();
 
     useEffect(() => {
-
         getLesson();
-
     }, [])
 
     const getLesson = () => {
-        apiGetLessonById(props.id)
-            .then(res => {
-                if (res) {
-                    console.log("=====res", res);
+        if (props.readonly) {
+            apiGetLessonHistoryById(props.id)
+                .then(res => {
+                    if (res) {
+                        console.log("=====res", res);
+                        setTitle(res.title);
 
-                    let data = JSON.parse(res.content);
-                    setTitle(data.title);
-
-                    let newdata = data.data;
-                    for (var i = 0; i <= 3; i++) {
-                        newdata[i].main.content.value = "1";
-                        newdata[i].sub.content.value = "1";
+                        let data = JSON.parse(res.content);
+                        setData(data.data);
                     }
-                    setData(newdata);
-                }
-            })
-            .catch(function (err) {
-                console.log("=====error", err);
-            })
+                })
+                .catch(function (err) {
+                    console.log("=====error", err);
+                })
+        } else {
+            apiGetLessonById(props.id)
+                .then(res => {
+                    if (res) {
+                        console.log("=====res", res);
+
+                        let data = JSON.parse(res.content);
+                        setTitle(data.title);
+
+                        let newdata = data.data;
+                        for (var i = 0; i <= 3; i++) {
+                            newdata[i].main.content.value = "1";
+                            newdata[i].sub.content.value = "1";
+                        }
+                        setData(newdata);
+                    }
+                })
+                .catch(function (err) {
+                    console.log("=====error", err);
+                })
+        }
+
     }
     const pageBack = () => {
         setPage(page - 1 >= 0 ? page - 1 : 0);
@@ -88,6 +104,7 @@ const TotalPreviewModal = (props) => {
         var newdata = {};
 
         newdata.id = props.id;
+        newdata.title = title;
 
         newdata.data = {};
 
@@ -147,7 +164,7 @@ const TotalPreviewModal = (props) => {
                         <p className="text-2xl mx-auto">{title}</p>
                     </div>
                     <div className="w-full relative">
-                        <img src="/images/board-pad.png" alt="board-pad" className="w-full h-full" />
+                        <img src="/images/board-pad.png" alt="board-pad" className="w-full h-full rounded-large" />
                         <div className={`${(data[page].main.type !== undefined && data[page].sub.type !== undefined) ? `flex` : `flex-none`} w-full h-full absolute left-0 top-0 text-center`}>
                             <div className={`${data[page].main.type !== undefined ? `block` : `hidden`} ${data[page].sub.type !== undefined ? `w-1/2` : `w-full`} h-full relative`}>
                                 {data !== null && data[page].main.type === "image" &&
@@ -173,7 +190,7 @@ const TotalPreviewModal = (props) => {
                                 }
                                 {data !== null && data[page].main.type === "text" && data[page].main.txttype === "question1" &&
                                     <div className="w-full h-full absolute left-0 top-0 flex items-center p-4">
-                                        <CustomQuestionPrevew content={data[page].main.content} checked={data[page].main.content.value} onChange={handleMainRadioGroup} />
+                                        <CustomQuestionPrevew content={data[page].main.content} onChange={handleMainRadioGroup} />
                                     </div>
                                 }
                             </div>
@@ -213,8 +230,8 @@ const TotalPreviewModal = (props) => {
                             <p className="px-8">{page + 1} / 4</p>
                             <img src="/images/right-icon.png" className="w-3 h-4 hover:opacity-50 cursor-pointer" alt="right-icon" onClick={pageAfter} />
                         </div>
-                        {page === 3 &&
-                            <Button variant="contained" color="primary" className="absolute right-4 top-4" onClick={saveLessonHistory}>
+                        {page === 3 && props.readonly == false &&
+                            <Button variant="contained" color="primary" className="absolute right-8 top-4" onClick={saveLessonHistory}>
                                 OK
                             </Button>
                         }

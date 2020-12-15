@@ -12,16 +12,15 @@ const TestComponent1 = (props) => {
     const [modal, setModal] = useState(false);
 
     useEffect(() => {
-        getRecentLessons();
+        getLessonHistory();
     }, []);
 
-    const getRecentLessons = () => {
+    const getLessonHistory = () => {
 
         apiGetLessonHistory()
             .then(res => {
                 if (res) {
                     console.log("=====res", res);
-                    // let data = JSON.pase(res.data);
                     setData(res);
                 }
             })
@@ -51,7 +50,7 @@ const TestComponent1 = (props) => {
                             <div className="flex items-start">
                                 <img src="images/account-gray.png" className="object-none w-4 h-8" />
                                 <div className="">
-                                    <p className="font-semibold pl-2 h-6">{JSON.parse(lesson.content).id !== null ? JSON.parse(lesson.content).id : ""}</p>
+                                    <p className="font-semibold pl-2 h-6">{lesson.lesson_id !== null ? lesson.lesson_id : ""}</p>
                                     <p className="pl-2">{Moment(lesson.updated_at).format('YYYY-MM-DD')}</p>
                                 </div>
                             </div>
@@ -64,6 +63,7 @@ const TestComponent1 = (props) => {
                 <TotalPreviewModal
                     open={modal}
                     id={id}
+                    readonly={true}
                     handlePreviewClose={handlePreviewClose}
                 />
             }

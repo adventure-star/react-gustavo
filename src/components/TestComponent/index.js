@@ -20,7 +20,7 @@ const TestComponent = (props) => {
         apiGetRecentLessons()
             .then(res => {
                 if (res) {
-                    console.log("=====res", res);
+                    // console.log("=====res", res);
                     setData(res);
                 }
             })
@@ -63,6 +63,7 @@ const TestComponent = (props) => {
                 <TotalPreviewModal
                     open={modal}
                     id={id}
+                    readonly={false}
                     handlePreviewClose={handlePreviewClose}
                 />
             }

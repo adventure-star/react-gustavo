@@ -93,7 +93,6 @@ const LeftSideBar = (props) => {
                     <div className={`${isExpanded ? `block` : `hidden`} block md:hidden bg-customPrimary md:bg-transparent`}>
                         {HeaderLinks}
                     </div>
-
                 </div>
                 <div className="w-full md:w-4/5 bg-white rounded-none md:rounded-tl-large" style={{ zIndex: "2" }}>
                     {children}

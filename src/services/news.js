@@ -77,5 +77,9 @@ export async function apiCreateLessonHistory(data) {
 }
 
 export async function apiGetLessonHistory() {
-  return await query(`/lesson/recenthistory`);
+  return await query(`/lessonhistory`);
+}
+
+export async function apiGetLessonHistoryById(id) {
+  return await query(`/history/${id}`);
 }
