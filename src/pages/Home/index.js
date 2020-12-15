@@ -11,11 +11,11 @@ const Home = (props) => {
 
     return (
         <WithHeaderLayout>
-            {/* <CreateLessons />
-            <LessonTemplates /> */}
-            {/* <MyLessonComponent /> */}
+            <CreateLessons />
+            <LessonTemplates />
+            <MyLessonComponent />
             <TestComponent />
-            <TestComponent1 />
+            {/* <TestComponent1 /> */}
         </WithHeaderLayout>
     )
 }
