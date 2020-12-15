@@ -44,14 +44,14 @@ const PreviewModal = (props) => {
                                 {maintype == "image" &&
                                     <div key={maindata.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={maindata.src} alt="maindata" className="h-full mx-auto" />
+                                            <img src={maindata.src} alt="maindata" className="h-full mx-auto rounded-3xl" />
                                         </div>
                                     </div>
                                 }
                                 {maintype == "video" &&
                                     <div key={maindata.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <video className="h-full mx-auto" autoPlay controls>
+                                            <video className="h-full mx-auto rounded-lg" autoPlay controls>
                                                 <source src={maindata.src} type="video/mp4"></source>
                                             </video>
                                         </div>
@@ -72,7 +72,7 @@ const PreviewModal = (props) => {
                                 {subtype == "image" &&
                                     <div key={subdata.id} className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={subdata.src} alt="subdata" className="h-full mx-auto" />
+                                            <img src={subdata.src} alt="subdata" className="h-full mx-auto rounded-3xl" />
                                         </div>
                                     </div>
                                 }

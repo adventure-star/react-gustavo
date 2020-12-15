@@ -170,7 +170,7 @@ const TotalPreviewModal = (props) => {
                                 {data !== null && data[page].main.type === "image" &&
                                     <div className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={data[page].main.src} alt="maindata" className="h-full mx-auto" />
+                                            <img src={data[page].main.src} alt="maindata" className="h-full mx-auto rounded-3xl" />
                                         </div>
                                     </div>
                                 }
@@ -198,7 +198,7 @@ const TotalPreviewModal = (props) => {
                                 {data !== null && data[page].sub.type === "image" &&
                                     <div className="w-full h-full absolute left-0 top-0 flex items-center">
                                         <div className="text-center w-full h-full p-4">
-                                            <img src={data[page].sub.src} alt="subdata" className="h-full mx-auto" />
+                                            <img src={data[page].sub.src} alt="subdata" className="h-full mx-auto rounded-3xl" />
                                         </div>
                                     </div>
                                 }
